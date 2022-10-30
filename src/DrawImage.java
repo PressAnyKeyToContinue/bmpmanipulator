@@ -5,10 +5,11 @@ import java.io.IOException;
 
 public class DrawImage {
     public static GetImage imageLoader = new GetImage();
+    public static ManipulateImage manipulator = new ManipulateImage();
     public static void main(String[] avg) throws IOException
     {
         //C:\Users\macek\IdeaProjects\bmpeditor\sprites\sample.bmp
-        DrawImage di = new DrawImage(imageLoader.image("sample.bmp"));
+        DrawImage di = new DrawImage(manipulator.manipulate(imageLoader.image("sample.bmp")));
     }
     public DrawImage(BufferedImage img) throws IOException
     {
