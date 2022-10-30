@@ -1,27 +1,44 @@
-import java.awt.*;
 import java.awt.image.BufferedImage;
+import java.awt.image.WritableRaster;
 
 
 public class ManipulateImage {
-    //TODO: Fix ArrayIndexOutOfBoundsException
-    public static BufferedImage manipulate (BufferedImage imgb){
-        BufferedImage imga = imgb;
-        int width = imga.getWidth();
-        int height = imga.getHeight();
-        try {
-            for (int hi = 0; hi < height; hi++) {
-                for (int wi = 0; wi < width; wi++) {
-                    int currentPixel = imga.getRGB(wi, hi);
-                    System.out.println(currentPixel);
-                    System.out.println((int)(currentPixel * Math.sin((double)wi)));
-                    imga.setRGB(hi, wi, Color.BLUE.getRGB()/*(int) (currentPixel * Math.sin((double)wi))*/ );
+    public static BufferedImage cutRed (BufferedImage img){
+        float[] color = new float[4];
+        WritableRaster raster = img.getRaster();
+            for (int x = 0, w = img.getWidth();x < w; ++x) {
+                for (int y = 0, h = img.getHeight();y < h; ++y) {
+                    raster.getPixel(x, y, color);
+                    color[0] = 0f;
+                    raster.setPixel(x, y, color);
                 }
             }
+        return img;
+    }
+
+    public static BufferedImage cutGreen (BufferedImage img){
+        float[] color = new float[4];
+        WritableRaster raster = img.getRaster();
+        for (int x = 0, w = img.getWidth();x < w; ++x) {
+            for (int y = 0, h = img.getHeight();y < h; ++y) {
+                raster.getPixel(x, y, color);
+                color[1] = 0f;
+                raster.setPixel(x, y, color);
+            }
         }
-        catch (ArrayIndexOutOfBoundsException e)
-        {
-            System.out.println("\nCaught " + e);
+        return img;
+    }
+
+    public static BufferedImage cutBlue (BufferedImage img){
+        float[] color = new float[4];
+        WritableRaster raster = img.getRaster();
+        for (int x = 0, w = img.getWidth();x < w; ++x) {
+            for (int y = 0, h = img.getHeight();y < h; ++y) {
+                raster.getPixel(x, y, color);
+                color[2] = 0f;
+                raster.setPixel(x, y, color);
+            }
         }
-        return imga;
+        return img;
     }
 }
