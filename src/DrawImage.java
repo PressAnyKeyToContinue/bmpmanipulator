@@ -3,9 +3,18 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 
 
+
 public class DrawImage {
     public static void main(String[] avg) {
-        BufferedImage[] imgs = {GetImage.image("sample.bmp"), ManipulateImage.cutRed(GetImage.image("sample.bmp")), ManipulateImage.cutGreen(GetImage.image("sample.bmp")), ManipulateImage.cutBlue(GetImage.image("sample.bmp"))};
+        String path = "sample.bmp";
+        BufferedImage img1 = GetImage.image(path);
+        BufferedImage img2 = ManipulateImage.cutRed(GetImage.image(path));
+        BufferedImage img3 = ManipulateImage.cutGreen(GetImage.image(path));
+        BufferedImage img4 = ManipulateImage.cutBlue(GetImage.image(path));
+        BufferedImage[] imgs = {img1, img2, img3, img4};
+        for (int i = 0; i < imgs.length; ++i){
+            SaveImage.writeImage(imgs[i], "out" + i + ".bmp");
+        }
         DrawImage window = new DrawImage(imgs);
     }
     public DrawImage(BufferedImage[] imgs) {
