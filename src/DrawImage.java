@@ -10,10 +10,10 @@ public class DrawImage {
         BufferedImage img1 = GetImage.image(path);
         BufferedImage img2 = ManipulateImage.cutRed(GetImage.image(path));
         BufferedImage img3 = ManipulateImage.cutGreen(GetImage.image(path));
-        BufferedImage img4 = ManipulateImage.cutBlue(GetImage.image(path));
+        BufferedImage img4 = ManipulateImage.cutRed(ManipulateImage.cutBlue(GetImage.image(path)));
         BufferedImage[] imgs = {img1, img2, img3, img4};
         for (int i = 0; i < imgs.length; ++i){
-            SaveImage.writeImage(imgs[i], "out" + i + ".bmp");
+            SaveImage.writeBMP(imgs[i], "out" + i + ".bmp");
         }
         DrawImage window = new DrawImage(imgs);
     }
