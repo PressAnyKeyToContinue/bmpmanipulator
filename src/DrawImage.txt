@@ -1,11 +1,8 @@
-import javax.swing.*;
-import java.awt.*;
-import java.awt.image.BufferedImage;
 
-
-
+/*
 public class DrawImage {
     public static void main(String[] avg) {
+
         String path = "sample.bmp";
         BufferedImage img1 = GetImage.image(path);
         BufferedImage img2 = ManipulateImage.cutRed(GetImage.image(path));
@@ -16,6 +13,7 @@ public class DrawImage {
             SaveImage.writeBMP(imgs[i], "out" + i + ".bmp");
         }
         DrawImage window = new DrawImage(imgs);
+
     }
     public DrawImage(BufferedImage[] imgs) {
         JFrame frame = new JFrame();
@@ -29,4 +27,5 @@ public class DrawImage {
         frame.setVisible(true);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
+     */
 }
