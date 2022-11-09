@@ -42,15 +42,26 @@ public class ManipulateImage {
         return img;
     }
 
+<<<<<<< HEAD
     public static BufferedImage customTone (BufferedImage img, float r, float g, float b){
+=======
+    public static BufferedImage customTone (BufferedImage img, float r, float g, float b, float a){
+>>>>>>> origin/dev
         float[] color = new float[4];
         WritableRaster raster = img.getRaster();
         for (int x = 0, w = img.getWidth();x < w; ++x) {
             for (int y = 0, h = img.getHeight();y < h; ++y) {
                 raster.getPixel(x, y, color);
+<<<<<<< HEAD
                 color[0] = color[0] * (r / 100);
                 color[1] = color[1] * (g / 100);
                 color[2] = color[2] * (b / 100);
+=======
+                color[0] = (color[0] / 100) * r;
+                color[1] = (color[1] / 100) * g;
+                color[2] = (color[2] / 100) * b;
+                color[3] = (color[3] / 100) * a;
+>>>>>>> origin/dev
                 raster.setPixel(x, y, color);
             }
         }
@@ -76,7 +87,11 @@ public class ManipulateImage {
         for (int x = 0, w = img.getWidth(); x < w; ++x) {
             for (int y = 0, h = img.getHeight(); y < h; ++y) {
                 raster.getPixel(x, y, color);
+<<<<<<< HEAD
                 //color[0] = color[0] * (1 - (prevR / 100));
+=======
+                color[0] = color[0] * (1 - (prevR / 100));
+>>>>>>> origin/dev
                 color[0] = color[0] * (r / 100);
                 raster.setPixel(x, y, color);
             }
