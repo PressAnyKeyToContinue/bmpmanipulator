@@ -9,7 +9,7 @@ public class GetImage {
         try{
             img = ImageIO.read(new File(filepath));
         }catch (IOException e){
-            System.out.println("Eception" + e);
+            System.out.println("Exception" + e);
         }
         return img;
     }
